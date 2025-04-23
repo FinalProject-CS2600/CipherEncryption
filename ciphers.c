@@ -8,9 +8,9 @@ int main() {
 	char input;
 
 	printf("List of Ciphers:\n");
-	printf("\tc: Caesar Cipher\n");
+	printf("\tc: Caesar Cipher (alphanumeric)\n");
 	printf("\tb: Base64\n");
-	printf("\ta: Atbash Cipher\n");
+	printf("\ta: Atbash Cipher (alphabetical)\n");
 	printf("Please enter the cipher you would like: ");
 	scanf(" %c", &input);
 
