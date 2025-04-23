@@ -72,7 +72,7 @@ int main() {
 	*/
 	else {
 		printf("Invalid selection.");
-	{
+	}
 	
 	return 0;
 }
@@ -97,7 +97,7 @@ void caesarCipherEncryption() {
 		else if (isupper(message[i])) {
 			encrypted[i] = (message[i] - 65 + key) % 26 + 65;
 		}
-		else if (isdigit(messag[i])) {
+		else if (isdigit(message[i])) {
 			encrypted[i] = (message[i] - 48 + key) % 10 + 48;
 		}
 		else {
@@ -123,16 +123,16 @@ void caesarCipherDecryption() {
 
 	for(int i = 0; i < strlen(message); i++) {
 		if (islower(message[i])) {
-			encrypted[i] = (message[i] - 97 - key) % 26 + 97;
+			decrypted[i] = (message[i] - 97 - key) % 26 + 97;
 		}
 		else if (isupper(message[i])) {
-			encrypted[i] = (message[i] - 65 - key) % 26 + 65;
+			decrypted[i] = (message[i] - 65 - key) % 26 + 65;
 		}
-		else if (isdigit(messag[i])) {
-			encrypted[i] = (message[i] - 48 - key) % 10 + 48;
+		else if (isdigit(message[i])) {
+			decrypted[i] = (message[i] - 48 - key) % 10 + 48;
 		}
 		else {
-			encrypted[i] = message[i];
+			decrypted[i] = message[i];
 		}
 	}
 
