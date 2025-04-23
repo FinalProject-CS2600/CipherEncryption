@@ -1,3 +1,16 @@
+// FINAL PROJECT --- CIPHER ENCRYPTION
+
+// Program contains functions corresponding to different cipher encryption techniques; 
+// Caesar Cipher, Base64, and Atbash
+// 
+
+// GROUP 6 MEMBERS: 
+// Amelie Carrillo
+// Anson Ng
+// Medha Swarnachandrabalaji
+// Natalie Tran
+// Julianna Arias
+
 #include <stdio.h>
 #include <ctype.h>
 
@@ -138,3 +151,9 @@ void caesarCipherDecryption() {
 
 	printf("Decrypted message: %s\n", decrypted);
 }
+
+//Base64 Function --- will be added later
+void base64_Encrypt(){
+
+}
+
