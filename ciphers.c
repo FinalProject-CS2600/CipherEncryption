@@ -119,9 +119,9 @@ void caesarCipherDecryption() {
 	printf("Please enter how many letters to shift: ");
 	scanf("%d", &key);
 	
-	char decrypted[strlen(message)];
+	char decrypted[sizeof(message)];
 
-	for(int i = 0; i < strlen(message); i++) {
+	for(int i = 0; i < sizeof(message); i++) {
 		if (islower(message[i])) {
 			decrypted[i] = (message[i] - 97 - key) % 26 + 97;
 		}
