@@ -84,7 +84,7 @@ void caesarCipherEncryption() {
 	printf("Selected Mode: Encryption\n");
 
 	printf("Please enter a message to encrypt: ");
-	scanf("%s", &message);
+	scanf(" %[^\n]s", &message);
 	printf("Please enter how many letters to shift: ");
 	scanf("%d", &key);
 
@@ -115,7 +115,7 @@ void caesarCipherDecryption() {
 	printf("Selected Mode: Decryption\n");
 
 	printf("Please enter a message to decrypt: ");
-	scanf("%s", &message);
+	scanf(" %[^\n]s", &message);
 	printf("Please enter how many letters to shift: ");
 	scanf("%d", &key);
 	
