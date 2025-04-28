@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 
 // STEPS TO ENCRYPT
@@ -15,47 +16,49 @@
 // 2. PUT BINARY NUMBERS AS ONE STRING -- BREAK INTO 6 PIECES
 // 3. MAKE FUNCTION TO CONVERT BINARY TO DECIMAL
 
-
-void convertToBinary(int decimalNum)
+int convertToBase(int decimalNum)
 {
-    //Each element within the encrypted array = ASCII num
-    // Needs to convert each num to binary
+    char base64[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
-    int remainder;
-    int moduloArray[100];
-    int binaryArray[100];
+    int index = 0;
 
-    int arrayCount = 0;
+    char baseNum;
+    //convert
 
-    while(decimalNum >= 1)
+}
+
+char* convertToBinary(int decimalNum)
+{
+    int arrayIndex = 0;
+
+    //Allocate a pointer
+    char* bin = (char *) malloc (32 * sizeof(char));
+
+    while( decimalNum > 0)
     {
-        //Modulo Operation
-        remainder = decimalNum % 2;
+        int remainder = decimalNum % 2;
+        bin[arrayIndex++] = '0' + remainder;
 
-        if(remainder != 0)
-        {
-            moduloArray[arrayCount] = 1;
-            decimalNum = decimalNum / 2;
-        }
-        else if(remainder == 0)
-        {
-            moduloArray[arrayCount] = 0;
-            decimalNum = decimalNum / 2;
-
-        }
-        arrayCount +=1;
+        decimalNum /= 2;
     }
 
-    //Reverse the array to receive the binary number
-    int binaryCount = 0;
-    while(arrayCount > -1 )
+    bin[arrayIndex] = '\0';
+
+    //Reverse the array using beginning and index -1
+    int begin = 0;
+    int end = arrayIndex - 1;
+
+    while(begin < end)
     {
-        moduloArray[arrayCount] = binaryArray[binaryCount];
-        arrayCount -= 1;
-        binaryCount += 1;   
+        char binaryInt = bin[begin];
+        bin[begin] = bin[end];
+        bin[end] = binaryInt;
+        begin++;
+        end--;
     }
 
-    //Check binary array to ensure correct answer
+    return bin;
+
 }
 
 void encrypt()
@@ -86,8 +89,30 @@ void encrypt()
         arrayCount +=1;
 
     }
-
+    
     arrayCount = 0;
+    char binaryString [100];
+
+    // Convert each ascii value in array into binary number -- combine into one String
+    while(encryptedString[arrayCount] != '\0')
+    {
+        char *binaryNum = convertToBinary(encryptedString[arrayCount]);
+
+        printf("ASCII: %d\nBINARY NUM: %s\n", encryptedString[arrayCount], binaryNum);
+
+        printf("Adding to one string...\n");
+
+        strcat(binaryString, binaryNum);
+
+        printf("New string: %s\n", binaryString);
+
+        arrayCount+=1;
+
+    }
+
+    // Group into 6 bits
+    // Convert back to decimal
+
 
 }
 
