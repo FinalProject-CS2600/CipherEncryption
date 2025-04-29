@@ -157,3 +157,11 @@ void base64_Encrypt(){
 
 }
 
+void Atbash_Encryption(){
+
+}
+
+void Atbash_Decryption(){
+
+}
+
