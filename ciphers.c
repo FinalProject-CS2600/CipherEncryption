@@ -159,11 +159,45 @@ void base64_Encrypt(){
 
 }
 
-void Atbash_Encryption(){
+// Function for Atbash Cipher
+void Atbash_encryption() {
+    // Map to lookup various alphabets (only uppercase)
+    map<char, char> lookup_table = {
+        { 'A', 'Z' }, { 'B', 'Y' }, { 'C', 'X' }, { 'D', 'W' },
+        { 'E', 'V' }, { 'F', 'U' }, { 'G', 'T' }, { 'H', 'S' },
+        { 'I', 'R' }, { 'J', 'Q' }, { 'K', 'P' }, { 'L', 'O' },
+        { 'M', 'N' }, { 'N', 'M' }, { 'O', 'L' }, { 'P', 'K' },
+        { 'Q', 'J' }, { 'R', 'I' }, { 'S', 'H' }, { 'T', 'G' },
+        { 'U', 'F' }, { 'V', 'E' }, { 'W', 'D' }, { 'X', 'C' },
+        { 'Y', 'B' }, { 'Z', 'A' }
+    };
 
+    // Decalres a character array that can hold up to 999 character
+    char message[1000];
+    printf("Enter the message to encrypt/decrypt: ");
+    // Uses a destination nuffer, finds the size of message, and tells it to read from keyboard
+    fgets(message, sizeof(message), stdin);
+
+    // Remove newline if present
+    size_t len = strlen(message);
+    if (len > 0 && message[len - 1] == '\n') {
+        message[len - 1] = '\0';
+    }
+
+    string cipher = "";
+    // For loop to process each character, keeps the space from inpuit, and converts to Atbash cipher version
+    for (int i = 0; message[i] != '\0'; i++) {
+        char letter = message[i];
+        if (letter == ' ') {
+            cipher += ' ';
+        } else {
+            cipher += lookup_table[toupper(letter)];
+        }
+    }
+
+    printf("Result: %s\n", cipher.c_str());
 }
 
-void Atbash_Decryption(){
 
-}
+
 
