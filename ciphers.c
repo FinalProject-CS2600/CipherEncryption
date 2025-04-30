@@ -190,7 +190,8 @@ void Atbash_encryption() {
         char letter = message[i];
         if (letter == ' ') {
             cipher += ' ';
-        } else {
+        } 
+	else {
             cipher += lookup_table[toupper(letter)];
         }
     }
