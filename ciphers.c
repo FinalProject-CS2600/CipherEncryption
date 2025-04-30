@@ -159,12 +159,6 @@ void base64_Encrypt(){
 
 }
 
-// Function for Atbash Cipher
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>  // for toupper()
-
 void Atbash_encryption() {
     // Create table for alphabetical conversion
     char lookup_table[26] = {
