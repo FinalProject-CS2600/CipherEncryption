@@ -159,22 +159,22 @@ void base64_Encrypt(){
 }
 
 // Function for Atbash Cipher
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>  // for toupper()
+
 void Atbash_encryption() {
-    // Map to lookup various alphabets (only uppercase)
-    map<char, char> lookup_table = {
-        { 'A', 'Z' }, { 'B', 'Y' }, { 'C', 'X' }, { 'D', 'W' },
-        { 'E', 'V' }, { 'F', 'U' }, { 'G', 'T' }, { 'H', 'S' },
-        { 'I', 'R' }, { 'J', 'Q' }, { 'K', 'P' }, { 'L', 'O' },
-        { 'M', 'N' }, { 'N', 'M' }, { 'O', 'L' }, { 'P', 'K' },
-        { 'Q', 'J' }, { 'R', 'I' }, { 'S', 'H' }, { 'T', 'G' },
-        { 'U', 'F' }, { 'V', 'E' }, { 'W', 'D' }, { 'X', 'C' },
-        { 'Y', 'B' }, { 'Z', 'A' }
+    // Create table for alphabetical conversion
+    char lookup_table[26] = {
+        'Z', 'Y', 'X', 'W', 'V', 'U', 'T', 'S',
+        'R', 'Q', 'P', 'O', 'N', 'M', 'L', 'K',
+        'J', 'I', 'H', 'G', 'F', 'E', 'D', 'C',
+        'B', 'A'
     };
 
-    // Decalres a character array that can hold up to 999 character
     char message[1000];
     printf("Enter the message to encrypt/decrypt: ");
-    // Uses a destination nuffer, finds the size of message, and tells it to read from keyboard
     fgets(message, sizeof(message), stdin);
 
     // Remove newline if present
@@ -183,20 +183,26 @@ void Atbash_encryption() {
         message[len - 1] = '\0';
     }
 
-    string cipher = "";
-    // For loop to process each character, keeps the space from inpuit, and converts to Atbash cipher version
+    char cipher[1000];
     for (int i = 0; message[i] != '\0'; i++) {
         char letter = message[i];
         if (letter == ' ') {
-            cipher += ' ';
+            cipher[i] = ' ';
+        } 
+	else if (isalpha(letter)) {
+            char upper = toupper(letter);
+            cipher[i] = lookup_table[upper - 'A'];
         } 
 	else {
-            cipher += lookup_table[toupper(letter)];
+            cipher[i] = letter; // preserve non-alpha characters
         }
     }
+    cipher[strlen(message)] = '\0'; // null terminate the cipher string
 
-    printf("Result: %s\n", cipher.c_str());
+    printf("Result: %s\n", cipher);
 }
+
+
 
 
 
