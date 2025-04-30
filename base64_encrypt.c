@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <math.h>
+#include <string.h>
 
 // STEPS TO ENCRYPT
 // 1. Convert text to decimal(ASCII), then convert to binary(8-bits)
@@ -23,7 +25,7 @@ int convertToBase(int decimalNum)
     int index = 0;
 
     char baseNum;
-    //convert
+    
 
 }
 
@@ -61,6 +63,49 @@ char* convertToBinary(int decimalNum)
 
 }
 
+int convertToDecimal(char* binaryNumber)
+{        
+    int decNum = 0;
+    int power = 1;
+
+    for(int i = strlen(binaryNumber); i >= 0; i--)
+    {
+        if(binaryNumber[i] == '1')
+        {
+            decNum += power;
+        }
+
+        power = power * 2;
+
+    }
+    return decNum;
+
+
+}
+
+void split_array(char binaryNumber [100])
+{
+    int counter = 0;
+
+    int remainder = strlen(binaryNumber) % 6;
+
+    //CHECK FOR 0 -- concatenate
+    if(remainder != 0)
+    {
+        printf("Remainder: %d\n", remainder);
+        printf("Length of full binary string is not a factor of 6.\n");
+
+        while(remainder > 0)
+        {
+            strcat(binaryNumber, "0");
+            remainder--;
+        }
+    }
+
+    printf("\nSPLIT STRING: %s\n", binaryNumber);
+
+}
+
 void encrypt()
 {
     char userString[100];
@@ -78,6 +123,7 @@ void encrypt()
     while(userString[arrayCount] != '\0')
     {
         char stringChar = userString[arrayCount];
+        
         //Test value of char
         printf("Char: %c\n", stringChar);
 
@@ -98,19 +144,18 @@ void encrypt()
     {
         char *binaryNum = convertToBinary(encryptedString[arrayCount]);
 
-        printf("ASCII: %d\nBINARY NUM: %s\n", encryptedString[arrayCount], binaryNum);
-
-        printf("Adding to one string...\n");
+        printf("\nASCII: %d\nBINARY NUM: %s\n", encryptedString[arrayCount], binaryNum);
 
         strcat(binaryString, binaryNum);
 
-        printf("New string: %s\n", binaryString);
+        printf("\n Complete string: %s\n", binaryString);
 
         arrayCount+=1;
 
     }
 
-    // Group into 6 bits
+    split_array(binaryString);
+
     // Convert back to decimal
 
 
