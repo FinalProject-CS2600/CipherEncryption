@@ -55,8 +55,7 @@ int main() {
 			printf("Invalid selection.\n");
 		}
 	}
-	
-	if (input == 'b') {
+	else if (input == 'b') {
 		printf("Selected Cipher: Base64\n");
 		printf("Mode:\n");
 		printf("\te: Encrypt\n");
@@ -67,14 +66,14 @@ int main() {
 		if (input == 'e') {
 			base64_Encrypt();
 		}
-		if (input == 'd') {
+		else if (input == 'd') {
 			// run decryp function
 		}
 		else {
 			//printf("Invalid selection.\n");
 		}
 	}
-	if (input == 'a') {
+	else if (input == 'a') {
 		printf("Selected Cipher: Atbash Cipher\n");
 		printf("Mode:\n");
 		printf("\te: Encrypt\n");
@@ -85,14 +84,13 @@ int main() {
 		if (input == 'e') {
 			Atbash_encryption();
 		}
-		if (input == 'd') {
+		else if (input == 'd') {
 			// run atbash decryption function
 		}
 		else {
-			//printf("Invalid selection.\n");
+			printf("Invalid selection.\n");
 		}
 	}
-	
 	else {
 		printf("Invalid selection.");
 	}
