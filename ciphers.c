@@ -73,7 +73,7 @@ int main() {
 			//printf("Invalid selection.\n");
 		}
 	}
-	/*if (input == 'a') {
+	if (input == 'a') {
 		printf("Selected Cipher: Atbash Cipher\n");
 		printf("Mode:\n");
 		printf("\te: Encrypt\n");
@@ -82,16 +82,16 @@ int main() {
 		scanf(" %c", &input);
 
 		if (input == 'e') {
-			run atbash cipher encryption function
+			Atbash_encryption();
 		}
 		if (input == 'd') {
-			run atbash decryption function
+			// run atbash decryption function
 		}
 		else {
-			printf("Invalid selection.\n");
+			//printf("Invalid selection.\n");
 		}
 	}
-	*/
+	
 	else {
 		printf("Invalid selection.");
 	}
