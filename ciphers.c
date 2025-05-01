@@ -25,6 +25,7 @@ char* convertToBinary();
 char* split_array();
 int convertToDecimal();
 
+void Atbash_encryption();
 
 int main() {
 	char input;
@@ -412,10 +413,3 @@ char* split_array(char input_array [1000], char output_array [2000])
     return output_array;
 
 }
-
-
-
-
-
-
-
