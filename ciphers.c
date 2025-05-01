@@ -25,6 +25,7 @@ char* convertToBinary();
 char* split_array();
 int convertToDecimal();
 
+void Atbash_encryption();
 
 int main() {
 	char input;
@@ -54,8 +55,7 @@ int main() {
 			printf("Invalid selection.\n");
 		}
 	}
-	
-	if (input == 'b') {
+	else if (input == 'b') {
 		printf("Selected Cipher: Base64\n");
 		printf("Mode:\n");
 		printf("\te: Encrypt\n");
@@ -66,14 +66,14 @@ int main() {
 		if (input == 'e') {
 			base64_Encrypt();
 		}
-		if (input == 'd') {
-			// run decryp function
+		else if (input == 'd') {
+			// run decrypt function
 		}
 		else {
 			//printf("Invalid selection.\n");
 		}
 	}
-	/*if (input == 'a') {
+	else if (input == 'a') {
 		printf("Selected Cipher: Atbash Cipher\n");
 		printf("Mode:\n");
 		printf("\te: Encrypt\n");
@@ -82,16 +82,15 @@ int main() {
 		scanf(" %c", &input);
 
 		if (input == 'e') {
-			run atbash cipher encryption function
+			Atbash_encryption();
 		}
-		if (input == 'd') {
-			run atbash decryption function
+		else if (input == 'd') {
+			// run atbash decryption function
 		}
 		else {
 			printf("Invalid selection.\n");
 		}
 	}
-	*/
 	else {
 		printf("Invalid selection.");
 	}
@@ -412,10 +411,3 @@ char* split_array(char input_array [1000], char output_array [2000])
     return output_array;
 
 }
-
-
-
-
-
-
-
