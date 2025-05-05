@@ -1,7 +1,7 @@
 // FINAL PROJECT --- CIPHER ENCRYPTION
 
-// Program contains functions corresponding to different cipher encryption techniques; 
-// Caesar Cipher, Base64, and Atbash
+// Program contains functions corresponding to different cipher encryption techniques. 
+// Methods: Caesar Cipher, Base64, and Atbash
 // 
 
 // GROUP 6 MEMBERS: 
@@ -16,6 +16,7 @@
 #include <string.h>
 #include <ctype.h> 
 
+// Encryption/Decryption Methods
 void caesarCipherEncryption();
 void caesarCipherDecryption();
 
@@ -27,16 +28,22 @@ int convertToDecimal();
 
 void Atbash_encryption();
 
+// MAIN FUNCTION
 int main() {
 	char input;
 
-	printf("List of Ciphers:\n");
+    // MENU OPTIONS
+	printf("Cipher Encryption\n");
+    printf("-- Menu Options --\n");
+
 	printf("\tc: Caesar Cipher (alphanumeric)\n");
 	printf("\tb: Base64\n");
 	printf("\ta: Atbash Cipher (alphabetical)\n");
-	printf("Please enter the cipher you would like: ");
+    printf("\tq: Quit program\n");
+	printf("Please enter a character: ");
 	scanf(" %c", &input);
 
+    // CAESAR CIPHER SELECTION
 	if (input == 'c') {
 		printf("Selected Cipher: Caesar Cipher\n");
 		printf("Mode:\n");
@@ -55,6 +62,7 @@ int main() {
 			printf("Invalid selection.\n");
 		}
 	}
+    // BASE64 SELECTION
 	else if (input == 'b') {
 		printf("Selected Cipher: Base64\n");
 		printf("Mode:\n");
@@ -73,6 +81,8 @@ int main() {
 			//printf("Invalid selection.\n");
 		}
 	}
+    
+    // ATBASH SELECTION
 	else if (input == 'a') {
 		printf("Selected Cipher: Atbash Cipher\n");
 		printf("Mode:\n");
@@ -91,9 +101,16 @@ int main() {
 			printf("Invalid selection.\n");
 		}
 	}
+
+    // QUIT PROGRAM
+    else if( input == 'q')
+    {
+        printf("\nExiting program...\n");
+        exit(0);
+    }
 	else {
 		printf("Invalid selection.");
-	}
+    }
 	
 	return 0;
 }
@@ -160,7 +177,6 @@ void caesarCipherDecryption() {
 	printf("Decrypted message: %s\n", decrypted);
 }
 
-//Base64 Function --- will be added later
 void base64_Encrypt()
 {
 	char user_string[100];
@@ -183,13 +199,7 @@ void base64_Encrypt()
     {
         char stringChar = user_string[array_count];
         
-        //  REMOVE BEFORE ADDING TO MAIN--- TESTING 
-        printf("Char: %c\n", stringChar);
-
         int asciiNum = stringChar;
-
-        //  REMOVE BEFORE ADDING TO MAIN--- TESTING 
-        printf("ASCII Value: %d\n", asciiNum);
 
         ascii_array[array_count] = asciiNum;
         array_count +=1;
@@ -203,14 +213,8 @@ void base64_Encrypt()
     {
         char *binaryNum = convertToBinary(ascii_array[array_count]);
 
-        //  REMOVE BEFORE ADDING TO MAIN--- TESTING 
-        printf("\nASCII: %d\nBINARY NUM: %s\n", ascii_array[array_count], binaryNum);
-
         //  Concatenate the binary number to the binary string
         strcat(binaryString, binaryNum);
-
-        //  REMOVE BEFORE ADDING TO MAIN--- TESTING
-        printf("\n Complete string: %s\n", binaryString);
 
         //  Increase the index to change every ASCII number
         array_count+=1;
@@ -235,15 +239,9 @@ void base64_Encrypt()
         {
             binary_number[number_index] = '\0';
 
-            //  REMOVE BEFORE ADDING TO MAIN--- TESTING
-            printf("6-bit Binary: %s\n", binary_number);
-
             number_index = 0;
 
             int dec_num = convertToDecimal(binary_number);
-
-            //  REMOVE BEFORE ADDING TO MAIN--- TESTING
-            printf("Decimal Value: %d\n", dec_num);
 
             //  Convert decimal number into base64 alphabet
             char base64_conversion = convertToBase(dec_num);
