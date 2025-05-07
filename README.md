@@ -9,7 +9,7 @@ Natalie Tran\
 Julianna Arias
 
 ### Purpose: 
-The purpose of our final project is to analyze the encryption and decryption techniques of different methods. These techniques include: Caesar Cipher, Base64, and atbash. The program allows the user to choose a method and be given the result of the encryption/decryption.
+The purpose of our final project is to analyze the encryption and decryption techniques of different methods. These techniques include: Caesar Cipher, Base64, and Atbash. The program allows the user to choose a method and be given the result of the encryption/decryption.
 
 ### How to use:
 1. Upon the start of the program, enter a character to represent the type of method you wish to use.
