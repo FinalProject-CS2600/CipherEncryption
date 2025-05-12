@@ -81,16 +81,33 @@ int main() {
                 else printf("Invalid selection. Please enter either \"e\" or \"d\".\n");
             }
         } else if (input == 'a') {
-            printf("Selected Cipher: Atbash Cipher\n");
-            printf("Mode:\n\te: Encrypt/Decrypt (symmetric)\n\td: Encrypt/Decrypt (symmetric)\n");
-            printf("Please enter a mode: ");
-            scanf(" %c", &input);
-            if (input == 'e' || input == 'd') Atbash_encryption();
-            else printf("Invalid selection.\n\n");
+            while (cont == 1){
+                printf("\n\nSelected Cipher: Atbash Cipher\n");
+                printf("Mode:\n\te: Encrypt/Decrypt (symmetric)\n\td: Encrypt/Decrypt (symmetric)\n\tq: Quit program\n");
+                printf("Please enter a mode: ");
+                scanf(" %c", &input);
+                if (input == 'e' || input == 'd'){
+                    Atbash_encryption();
+                    break;
+                } 
+                else if (input == 'q') {
+                    printf("Exiting...\n");
+                    // should exit out of both while loops
+                    cont = 0;
+                }
+                else if (isdigit((unsigned char)input)){
+                    printf("You entered a number. Please enter either \"e\" or \"d\".\n");
+                }
+                else printf("Invalid selection. Please enter either \"e\" or \"d\".\n");
+            }
         } else if (input == 'q') {
             printf("Exiting...\n");
             cont = 0;
-        } else {
+        }
+        else if (isdigit((unsigned char)input)){
+            printf("You entered a number. Please enter either \"c\" or \"b\" or \"a\" or \"q\".\n");
+        }
+        else {
             printf("Invalid selection.\n\n");
         }
     }
