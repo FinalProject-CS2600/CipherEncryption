@@ -12,7 +12,7 @@ void Atbash_encryption();
 
 // Base64
 void base64_Encrypt();
-void decrypt();
+void base64_Decrypt();
 char convertToBase(int decimalNum);
 char* convertToBinary(int decimalNum);
 int convertToDecimal(char* binaryNumber);
@@ -67,7 +67,7 @@ int main() {
                     break;
                 }
                 else if (input == 'd'){
-                    decrypt();
+                    base64_Decrypt();
                     break;
                 }
                 else if (input == 'q') {
@@ -249,7 +249,7 @@ int base64ToDecimal(char c) {
     return -1;
 }
 
-void decrypt() {
+void base64_Decrypt() {
     char input[100], binStr[1000] = "", result[100];
     int idx = 0;
     printf("Enter base64 string: ");
