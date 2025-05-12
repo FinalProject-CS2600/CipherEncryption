@@ -33,13 +33,29 @@ int main() {
         scanf(" %c", &input);
 
         if (input == 'c') {
-            printf("Selected Cipher: Caesar Cipher\n");
-            printf("Mode:\n\te: Encrypt\n\td: Decrypt\n");
-            printf("Please enter a mode: ");
-            scanf(" %c", &input);
-            if (input == 'e') caesarCipherEncryption();
-            else if (input == 'd') caesarCipherDecryption();
-            else printf("Invalid selection.\n\n");
+            while (cont == 1){
+                printf("\n\nSelected Cipher: Caesar Cipher\n");
+                printf("Mode:\n\te: Encrypt\n\td: Decrypt\n\tq: Quit program\n");
+                printf("Please enter a mode: ");
+                scanf(" %c", &input);
+                if (input == 'e') {
+                    caesarCipherEncryption();
+                    break;
+                }
+                else if (input == 'd'){
+                    caesarCipherDecryption();
+                    break;
+                }
+                else if (input == 'q') {
+                    printf("Exiting...\n");
+                    // should exit out of both while loops
+                    cont = 0;
+                }
+                else if (isdigit((unsigned char)input)){
+                    printf("You entered a number. Please enter either \"e\" or \"d\".\n");
+                }
+                else printf("Invalid selection. Please enter either \"e\" or \"d\".\n");
+            }
         } else if (input == 'b') {
             printf("Selected Cipher: Base64\n");
             printf("Mode:\n\te: Encrypt\n\td: Decrypt\n");
