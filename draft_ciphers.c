@@ -20,43 +20,48 @@ char* split_array(char input_array[1000], char output_array[2000]);
 
 int main() {
     char input;
+    int cont = 1;
+    
+    while(cont == 1) {
+        printf("Cipher Encryption\n");
+        printf("-- Menu Options --\n");
+        printf("\tc: Caesar Cipher\n");
+        printf("\tb: Base64\n");
+        printf("\ta: Atbash Cipher\n");
+        printf("\tq: Quit program\n");
+        printf("Please enter a character: ");
+        scanf(" %c", &input);
 
-    printf("Cipher Encryption\n");
-    printf("-- Menu Options --\n");
-    printf("\tc: Caesar Cipher\n");
-    printf("\tb: Base64\n");
-    printf("\ta: Atbash Cipher\n");
-    printf("\tq: Quit program\n");
-    printf("Please enter a character: ");
-    scanf(" %c", &input);
-
-    if (input == 'c') {
-        printf("Selected Cipher: Caesar Cipher\n");
-        printf("Mode:\n\te: Encrypt\n\td: Decrypt\n");
-        scanf(" %c", &input);
-        if (input == 'e') caesarCipherEncryption();
-        else if (input == 'd') caesarCipherDecryption();
-        else printf("Invalid selection.\n");
-    } else if (input == 'b') {
-        printf("Selected Cipher: Base64\n");
-        printf("Mode:\n\te: Encrypt\n\td: Decrypt\n");
-        scanf(" %c", &input);
-        if (input == 'e') base64_Encrypt();
-        else if (input == 'd') decrypt();
-        else printf("Invalid selection.\n");
-    } else if (input == 'a') {
-        printf("Selected Cipher: Atbash Cipher\n");
-        printf("Mode:\n\te: Encrypt/Decrypt (symmetric)\n");
-        scanf(" %c", &input);
-        if (input == 'e' || input == 'd') Atbash_encryption();
-        else printf("Invalid selection.\n");
-    } else if (input == 'q') {
-        printf("Exiting...\n");
-        return 0;
-    } else {
-        printf("Invalid selection.\n");
+        if (input == 'c') {
+            printf("Selected Cipher: Caesar Cipher\n");
+            printf("Mode:\n\te: Encrypt\n\td: Decrypt\n");
+            printf("Please enter a mode: ");
+            scanf(" %c", &input);
+            if (input == 'e') caesarCipherEncryption();
+            else if (input == 'd') caesarCipherDecryption();
+            else printf("Invalid selection.\n\n");
+        } else if (input == 'b') {
+            printf("Selected Cipher: Base64\n");
+            printf("Mode:\n\te: Encrypt\n\td: Decrypt\n");
+            printf("Please enter a mode: ");
+            scanf(" %c", &input);
+            if (input == 'e') base64_Encrypt();
+            else if (input == 'd') decrypt();
+            else printf("Invalid selection.\n\n");
+        } else if (input == 'a') {
+            printf("Selected Cipher: Atbash Cipher\n");
+            printf("Mode:\n\te: Encrypt/Decrypt (symmetric)\n\td: Encrypt/Decrypt (symmetric)\n");
+            printf("Please enter a mode: ");
+            scanf(" %c", &input);
+            if (input == 'e' || input == 'd') Atbash_encryption();
+            else printf("Invalid selection.\n\n");
+        } else if (input == 'q') {
+            printf("Exiting...\n");
+            cont = 0;
+        } else {
+            printf("Invalid selection.\n\n");
+        }
     }
-
     return 0;
 }
 
