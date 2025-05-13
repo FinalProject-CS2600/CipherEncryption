@@ -290,6 +290,7 @@ void Atbash_encryption() {
         'B', 'A'
     };
 
+    // Read input string up to 999 characters
     char message[1000];
     printf("Enter the message to encrypt/decrypt: ");
     fgets(message, sizeof(message), stdin);
@@ -300,6 +301,7 @@ void Atbash_encryption() {
         message[len - 1] = '\0';
     }
 
+    // Declare another array to hold encrypted/decrpyted message
     char cipher[1000];
     for (int i = 0; message[i] != '\0'; i++) {
         char letter = message[i];
