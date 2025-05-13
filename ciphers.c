@@ -305,6 +305,7 @@ void Atbash_encryption() {
     char cipher[1000];
     for (int i = 0; message[i] != '\0'; i++) {
         char letter = message[i];
+	// preserves the space character
         if (letter == ' ') {
             cipher[i] = ' ';
         } 
